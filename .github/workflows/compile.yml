@@ -1,0 +1,27 @@
+name: Build ESP32-C3 Firmware
+on: [workflow_dispatch, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Compile ESP-IDF Project
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.3
+          target: esp32c3
+          path: '.'
+
+      - name: Upload Binary Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: esp32c3-nat-router-128x64
+          path: |
+            build/esp32_nat_router.bin
+            build/bootloader/bootloader.bin
+            build/partition_table/partition-table.bin
