@@ -50,8 +50,8 @@ static const char *TAG = "oled";
 #define HELTEC_OLED_RST_GPIO  GPIO_NUM_21
 #else
 /* SSD1306 72x40 display parameters */
-#define OLED_WIDTH        72
-#define OLED_HEIGHT       40
+#define OLED_WIDTH        128
+#define OLED_HEIGHT       64
 #define OLED_PAGES        5
 #define OLED_COL_OFFSET   28
 #endif
@@ -519,7 +519,3 @@ void oled_display_get_config(bool *enabled, int *sda, int *scl)
 }
 
 #endif /* CONFIG_IDF_TARGET_ESP32C3 || CONFIG_IDF_TARGET_ESP32S3 */
-#undef OLED_WIDTH
-#undef OLED_HEIGHT
-#define OLED_WIDTH        128
-#define OLED_HEIGHT        64
