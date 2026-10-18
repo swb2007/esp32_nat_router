@@ -519,3 +519,7 @@ void oled_display_get_config(bool *enabled, int *sda, int *scl)
 }
 
 #endif /* CONFIG_IDF_TARGET_ESP32C3 || CONFIG_IDF_TARGET_ESP32S3 */
+#undef OLED_WIDTH
+#undef OLED_HEIGHT
+#define OLED_WIDTH        128
+#define OLED_HEIGHT        64
