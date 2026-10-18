@@ -50,10 +50,10 @@ static const char *TAG = "oled";
 #define HELTEC_OLED_RST_GPIO  GPIO_NUM_21
 #else
 /* SSD1306 72x40 display parameters */
-#define OLED_WIDTH        128
-#define OLED_HEIGHT       64
-#define OLED_PAGES        8
-#define OLED_COL_OFFSET   0
+#define OLED_WIDTH        72
+#define OLED_HEIGHT       40
+#define OLED_PAGES        5
+#define OLED_COL_OFFSET   28
 #endif
 #define FB_SIZE           (OLED_WIDTH * OLED_PAGES)
 /* display page rotation */
@@ -193,7 +193,7 @@ static esp_err_t oled_init_display(void)
     static const uint8_t init_cmds[] = {
         0xAE,       /* Display off */
         0xD5, 0x80, /* Clock divide ratio */
-        0xA8, 0x3F, /* Multiplex ratio = 39 (40 rows) */
+        0xA8, 0x27, /* Multiplex ratio = 39 (40 rows) */
         0xD3, 0x00, /* Display offset = 0 */
         0x40,       /* Start line = 0 */
         0x8D, 0x14, /* Charge pump enable */
